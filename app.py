@@ -14,13 +14,13 @@ import speech_recognition as sr
 logging.getLogger("streamlit").setLevel(logging.ERROR)
 api_url = 'http://172.10.1.176:5001'
  
-logo = r'C:\Users\skitukale\Downloads\Chatbot - main\Picturenoname.png'
+logo = r'Picturenoname.png'
 logos = Image.open(logo)
 st.set_page_config(page_title="QueryMate", page_icon=logos, initial_sidebar_state="expanded")
  
 # Initialize images
-image_path1 = r'C:\Users\skitukale\Downloads\Chatbot - main\Picturenoname.png'
-image_path2 = r'C:\Users\skitukale\Downloads\Chatbot - main\Nice-Logo_edit-version.png'
+image_path1 = r'Picturenoname.png'
+image_path2 = r'Nice-Logo_edit-version.png'
 botimage = Image.open(image_path1)
 logoimage = Image.open(image_path2)
  
