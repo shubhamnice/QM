@@ -9,6 +9,7 @@ import pandas as pd
 import io 
 import logging
 import plotly.graph_objects as go
+import speech_recognition as sr
 
 logging.getLogger("streamlit").setLevel(logging.ERROR)
 api_url = 'http://172.10.1.176:5001'
@@ -174,25 +175,20 @@ with st.container():
                     webm_file_path = "temp_audio.mp3"
                     with open(webm_file_path, "wb") as f:
                         f.write(audio_bytes)
+                    recognizer = sr.Recognizer()
 
+                    with sr.AudioFile(webm_file_path) as source:
+                        audio_data = recognizer.record(source)
+                    try:
+                        prompt = recognizer.recognize_google(audio_data)
+                        print(prompt)
                         # Set flag to indicate audio has been processed
                         st.session_state.audio_processed = True
-
-                        prompt = speech_to_text(webm_file_path)
                         handle_input(prompt)
-                        print(prompt)
-                        st.session_state.messages.append({"role": "user", "content": prompt})
-                        # Send to API
-                        response = send_prompt_to_api(prompt)
-            
-                        if response:
-                            assistant_message = response.get("message")
-                            st.session_state.messages.append({"role": "assistant", "content": assistant_message})
-                            if "sql" in response:
-                                st.session_state.messages.append({"role": "assistant", "content": f"SQL Query: {response['sql']}"})
-                            if "results" in response:
-                                st.session_state.messages.append({"role": "assistant", "content": response["results"]})
-                        st.rerun()
+                    except sr.UnknownValueError:
+                        st.write("Google Speech Recognition could not understand the audio.")
+                    except sr.RequestError as e:
+                        st.write(f"Could not request results from Google Speech Recognition service; {e}")
 
             except Exception as e:
                 print(f"Error Processing input: {e}")
