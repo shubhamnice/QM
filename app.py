@@ -4,7 +4,7 @@ import requests
 import matplotlib.pyplot as plt
 from audio_recorder_streamlit import audio_recorder
 from streamlit_extras.bottom_container import bottom
-from utils import speech_to_text
+# from utils import speech_to_text
 import pandas as pd
 import io 
 import logging
