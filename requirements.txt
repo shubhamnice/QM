@@ -1,5 +1,4 @@
 streamlit
-PIL
 requests
 matplotlib
 dotenv
