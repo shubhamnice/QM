@@ -6,4 +6,4 @@ streamlit_extras
 pandas
 logging
 plotly
-whisper
+SpeechRecognition
