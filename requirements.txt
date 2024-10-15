@@ -27,3 +27,7 @@ requests
 openpyxl
 tabulate
 plotly
+utils
+pandas
+io
+logging
