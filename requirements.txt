@@ -3,7 +3,6 @@ requests
 matplotlib
 audio_recorder_streamlit
 streamlit_extras
-utils
 pandas
 logging
 plotly
