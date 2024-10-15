@@ -1,10 +1,7 @@
- #Working App.py
-
 import streamlit as st
 from PIL import Image
 import requests
 import matplotlib.pyplot as plt
-from dotenv import load_dotenv, find_dotenv
 from audio_recorder_streamlit import audio_recorder
 from streamlit_extras.bottom_container import bottom
 from utils import speech_to_text
@@ -14,8 +11,6 @@ import logging
 import plotly.graph_objects as go
 
 logging.getLogger("streamlit").setLevel(logging.ERROR)
-# Load environment variables
-_ = load_dotenv(find_dotenv())
 api_url = 'http://172.10.1.176:5001'
  
 logo = r'C:\Users\skitukale\Downloads\Chatbot - main\Picturenoname.png'
