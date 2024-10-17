@@ -12,7 +12,7 @@ import plotly.graph_objects as go
 import speech_recognition as sr
 
 logging.getLogger("streamlit").setLevel(logging.ERROR)
-api_url = 'http://172.10.1.176:5001'
+api_url = 'http://49.248.121.202:5001'
  
 logo = r'Picturenoname.png'
 logos = Image.open(logo)
